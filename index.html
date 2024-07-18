@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Display</title>
+</head>
+<body>
+    <div id="data-token"></div>
+
+    <script>
+        var token = "1212121212121";
+        localStorage.setItem("token", token);
+        var data_token = localStorage.getItem('token');
+        console.log(data_token);
+
+        var div = document.getElementById('data-token');
+        div.append(data_token);
+    </script>
+</body>
+</html>
