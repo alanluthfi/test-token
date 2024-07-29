@@ -9,14 +9,34 @@
 <body>
     <div id="data-token"></div>
 
-    <script>
-        var token = "1212121212121";
-        localStorage.setItem("token", token);
-        var data_token = localStorage.getItem('token');
-        console.log(data_token);
+        <script>
+        // Basic check for localStorage support
+        if (typeof(Storage) !== "undefined") {
+            var token = "1212121212121";
 
-        var div = document.getElementById('data-token');
-        div.append(data_token);
+            // Store token in localStorage
+            localStorage.setItem("token", token);
+
+            // Retrieve token from localStorage
+            var data_token = localStorage.getItem("token");
+
+            // Log token to console
+            if (console && console.log) {
+                console.log(data_token);
+            }
+
+            // Display token in the div
+            var div = document.getElementById('data-token');
+            if (div) {
+                div.innerHTML = data_token || 'No token found';
+            }
+        } else {
+            // Fallback message if localStorage is not supported
+            var div = document.getElementById('data-token');
+            if (div) {
+                div.innerHTML = 'LocalStorage is not supported by your browser.';
+            }
+        }
     </script>
 </body>
 </html>
